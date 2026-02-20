@@ -131,8 +131,8 @@ code {
 .nav-brand:hover { color: #fff; }
 
 .nav-logo {
-  width: 34px;
-  height: 34px;
+  width: 42px;
+  height: 42px;
   border-radius: 6px;
   object-fit: cover;
   position: relative;
@@ -142,8 +142,8 @@ code {
 .nav-brand::before {
   content: '';
   position: absolute;
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   left: -5px;
   top: 50%;
   transform: translateY(-50%);
@@ -154,10 +154,11 @@ code {
 }
 
 .nav-wordmark {
-  font-family: var(--font-heading);
+  font-family: 'Orbitron', var(--font-heading);
   font-weight: 700;
-  font-size: 1.6rem;
-  letter-spacing: -0.02em;
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: #fff;
 }
 
