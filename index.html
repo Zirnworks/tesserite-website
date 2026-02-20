@@ -3,9 +3,229 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World</title>
+    <title>Tesserite — Unflattenize Your Thinking</title>
+    <meta name="description" content="A spatial thinking environment for Obsidian Canvas. Collaborate with LLMs by arranging ideas in space — branch, fork, cluster, and see the shape of what you're building." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Hello World!!!</h1>
+
+    <!-- ===== NAV ===== -->
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="/" class="nav-brand">
+          <div class="nav-logo" aria-label="Tesserite logo placeholder"></div>
+          <span class="nav-wordmark">Tesserite</span>
+        </a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="#features">Features</a>
+          <a href="#3d-view">3D View</a>
+          <a href="/docs">Docs</a>
+          <a href="https://github.com/nicjhan/tesserite" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="bento-grid hero-grid">
+        <div class="card hero-content">
+          <h1 class="hero-title">Unflattenize<br />your thinking.</h1>
+          <p class="hero-subtitle">A spatial thinking environment for Obsidian Canvas. Collaborate with LLMs by arranging ideas in space — branch, fork, cluster, and see the shape of what you're building.</p>
+          <a href="#get" class="cta-button">
+            <span class="cta-arrow">&rarr;</span>
+            Get Tesserite — free &amp; open source
+          </a>
+        </div>
+        <div class="card hero-screenshot">
+          <div class="screenshot-placeholder" id="img-hero">
+            <code class="placeholder-id">img-hero</code>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            <span>Hero screenshot: canvas with branching LLM conversation, context highlights, diagenic P/R buttons</span>
+          </div>
+        </div>
+        <div class="card hero-tagline">
+          <span class="tagline-text">A thinking tool that happens to speak LLM.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TRUST BAR ===== -->
+    <section class="trust-bar">
+      <div class="trust-inner">
+        <span class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Own it, not rent it
+        </span>
+        <span class="trust-dot">&middot;</span>
+        <span class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg>
+          Local-First
+        </span>
+        <span class="trust-dot">&middot;</span>
+        <span class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Your Data Never Leaves Your Vault
+        </span>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="features" id="features">
+
+      <!-- Feature 1: Nodes — image LEFT (zigzag from hero) -->
+      <div class="bento-grid feature-row feature-row--reverse">
+        <div class="card feature-screenshot">
+          <div class="screenshot-placeholder" id="img-nodes">
+            <code class="placeholder-id">img-nodes</code>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            <span>Branching conversation with context highlighting, ancestor chain lit up, P/R directional buttons</span>
+          </div>
+        </div>
+        <div class="card feature-text">
+          <h2>Think in nodes, not threads</h2>
+          <p>Every node is a thought. Every connection is context. Tesserite reads the graph upstream from your prompt — the LLM sees <em>why you're asking</em>, not just what.</p>
+          <p>Branch freely. Mask what you don't need. Steer conversation flow with diagenic controls overlaid right on the node. A new interaction paradigm for human-LLM communication.</p>
+        </div>
+      </div>
+
+      <!-- Feature 2: 3D — image RIGHT -->
+      <div class="bento-grid feature-row" id="3d-view">
+        <div class="card feature-text">
+          <h2>Your canvas has a z-axis</h2>
+          <p>Semantic clustering arranges nodes by <em>meaning</em>. Timelines rise along a temporal axis. Ground maps anchor abstract thinking to spatial metaphors.</p>
+          <p>Import <code>.glb</code> models. Export interactive 3D HTML views anyone can explore — no Obsidian required.</p>
+        </div>
+        <div class="card feature-screenshot">
+          <div class="screenshot-placeholder" id="img-3d">
+            <code class="placeholder-id">img-3d</code>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            <span>3D semantic clusters floating in space with ground map underneath, temporal z-axis, glowing edges</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3: Context — image LEFT -->
+      <div class="bento-grid feature-row feature-row--reverse">
+        <div class="card feature-screenshot">
+          <div class="screenshot-placeholder" id="img-context">
+            <code class="placeholder-id">img-context</code>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            <span>Context chain visualization with masked groups dimmed, token estimate visible, streaming overlay</span>
+          </div>
+        </div>
+        <div class="card feature-text">
+          <h2>Context with surgical precision</h2>
+          <p>Mask irrelevant branches. Weight prompts over the context chain. Choose which direction new responses flow.</p>
+          <p>Visual prompt debugging — see exactly what the model reads, catch when irrelevant context pollutes responses. The canvas is the interface <em>and</em> the prompt engineering tool.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== QUOTE ===== -->
+    <section class="quote-section">
+      <div class="card card-quote">
+        <blockquote>
+          <p>&ldquo;The creative process itself becomes a navigable artifact. Every rabbit hole, every tangent, every &lsquo;what if&rsquo; stays visible on the canvas. Nothing gets lost to chat history. The shape of human inquiry — preserved.&rdquo;</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ===== FEATURE GRID ===== -->
+    <section class="feature-grid-section">
+      <h2 class="section-heading">Everything else you'd want, and a few things you didn't know you needed</h2>
+      <div class="bento-grid grid-6">
+
+        <div class="card grid-card grid-card--tall">
+          <div class="grid-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Bring Your Own Models</h3>
+          <p>Claude, Gemini, OpenAI via OpenRouter, local via Ollama. Switch mid-conversation. Compare outputs. Batch mode fires off prompts in parallel.</p>
+        </div>
+
+        <div class="card grid-card grid-card--wide">
+          <div class="grid-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <h3>Search Grounding</h3>
+          <p>Brave Search and Exa inject live web results directly into your LLM's context. Labeled, sourced, and connected to the response node.</p>
+        </div>
+
+        <div class="card grid-card">
+          <div class="grid-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h3>RAG Over Your Vault</h3>
+          <p>Semantic search finds relevant notes you forgot you wrote. Boosts human-written content. Your knowledge stays central, not the model's.</p>
+        </div>
+
+        <div class="card grid-card">
+          <div class="grid-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Personas &amp; Dialogue</h3>
+          <p>Distinct LLM personas with their own system prompts, colors, and persistent memory. Structured hashtag channels for technical review, ideation, feedback.</p>
+        </div>
+
+        <div class="card grid-card">
+          <div class="grid-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="m7 9 3 3-3 3"/><line x1="13" y1="15" x2="17" y2="15"/></svg>
+          </div>
+          <h3>Canvas Agent</h3>
+          <p>The LLM manipulates the canvas itself — creating nodes, drawing edges, moving things around. Sandboxed, audited, and configurable.</p>
+        </div>
+
+        <div class="card grid-card grid-card--wide">
+          <div class="grid-card-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Templates &amp; Export</h3>
+          <p>Reusable node structures. Diff mode. 3D HTML export. Godot game engine integration. YouTube and audio transcription built in.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== AUDIENCE ===== -->
+    <section class="audience-section" id="audience">
+      <div class="card card-audience">
+        <h2>Who is Tesserite for?</h2>
+        <p class="audience-list">Visual thinkers. Researchers. Worldbuilders. Maximalists. Anyone whose ideas have topology.</p>
+        <p>Tesserite meets neurodivergent thinkers where their thinking already happens — designers, 3D artists, filmmakers, and the millions of creative people now navigating technical systems through vibe coding who need to <em>see</em> what they're building.</p>
+        <p class="audience-highlight">Spatial interfaces lower the floor and raise the ceiling. Basic use becomes more intuitive. Advanced use becomes more powerful.</p>
+      </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="cta-section" id="get">
+      <div class="card card-cta">
+        <h2>An artist's take on AI.</h2>
+        <a href="#" class="cta-button cta-button--large">
+          <span class="cta-arrow">&rarr;</span>
+          Install from Obsidian Community Plugins
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <span>Tesserite</span>
+        <span class="footer-dot">&middot;</span>
+        <a href="/docs">Documentation</a>
+        <span class="footer-dot">&middot;</span>
+        <a href="https://github.com/nicjhan/tesserite" target="_blank" rel="noopener">GitHub</a>
+        <span class="footer-dot">&middot;</span>
+        <span class="footer-tagline">Made in Obsidian with unreasonable ambition</span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
