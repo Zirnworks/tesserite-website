@@ -663,6 +663,14 @@ code {
   grid-column: span 2;
 }
 
+.grid-card--img {
+  padding: 0.75rem;
+}
+
+.grid-card--img .feature-img-wrap {
+  height: 100%;
+}
+
 /* ============================================
    AUDIENCE
    ============================================ */
