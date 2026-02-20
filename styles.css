@@ -611,9 +611,9 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background-image: radial-gradient(circle, var(--border) 0.7px, transparent 0.7px);
-  background-size: 28px 28px;
-  opacity: 0.3;
+  background-image: radial-gradient(circle, #3a352e 0.8px, transparent 0.8px);
+  background-size: 24px 24px;
+  opacity: 0.45;
   pointer-events: none;
 }
 
