@@ -36,6 +36,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -64,7 +65,7 @@ code {
 
 /* --- Card base --- */
 .card {
-  background: var(--bg-card);
+  background: rgba(20, 22, 30, 0.55);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 2rem;
@@ -73,7 +74,7 @@ code {
 
 .card:hover {
   border-color: var(--border-hover);
-  background: var(--bg-card-hover);
+  background: rgba(24, 27, 37, 1);
 }
 
 /* --- Bento grid base --- */
@@ -95,7 +96,18 @@ code {
   background: rgba(140, 110, 30, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(180, 145, 40, 0.4);
+  border-bottom: none;
+}
+
+.nav::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(to bottom, rgba(140, 110, 30, 0.92), transparent);
+  pointer-events: none;
 }
 
 .nav-inner {
@@ -113,6 +125,7 @@ code {
   align-items: center;
   gap: 0.65rem;
   color: #fff;
+  position: relative;
 }
 
 .nav-brand:hover { color: #fff; }
@@ -121,8 +134,23 @@ code {
   width: 34px;
   height: 34px;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-brand::before {
+  content: '';
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.3) 40%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .nav-wordmark {
@@ -484,6 +512,92 @@ code {
   z-index: 1;
 }
 
+/* --- Feature row color tints (canvas node colors) --- */
+.features .feature-row:nth-of-type(1) .card {
+  background: linear-gradient(rgba(40, 120, 60, 0.1), rgba(40, 120, 60, 0.1)), rgba(20, 22, 30, 0.55);
+  border-color: rgba(40, 120, 60, 0.2);
+}
+.features .feature-row:nth-of-type(1) .card:hover {
+  background: linear-gradient(rgba(40, 120, 60, 0.15), rgba(40, 120, 60, 0.15)), rgba(24, 27, 37, 1);
+  border-color: rgba(40, 120, 60, 0.3);
+}
+
+.features .feature-row:nth-of-type(2) .card {
+  background: linear-gradient(rgba(160, 45, 45, 0.1), rgba(160, 45, 45, 0.1)), rgba(20, 22, 30, 0.55);
+  border-color: rgba(160, 45, 45, 0.2);
+}
+.features .feature-row:nth-of-type(2) .card:hover {
+  background: linear-gradient(rgba(160, 45, 45, 0.15), rgba(160, 45, 45, 0.15)), rgba(24, 27, 37, 1);
+  border-color: rgba(160, 45, 45, 0.3);
+}
+
+.features .feature-row:nth-of-type(3) .card {
+  background: linear-gradient(rgba(45, 90, 170, 0.1), rgba(45, 90, 170, 0.1)), rgba(20, 22, 30, 0.55);
+  border-color: rgba(45, 90, 170, 0.2);
+}
+.features .feature-row:nth-of-type(3) .card:hover {
+  background: linear-gradient(rgba(45, 90, 170, 0.15), rgba(45, 90, 170, 0.15)), rgba(24, 27, 37, 1);
+  border-color: rgba(45, 90, 170, 0.3);
+}
+
+/* --- Grid card color tints --- */
+.grid-6 .grid-card:nth-child(1) {
+  background: linear-gradient(rgba(180, 130, 40, 0.1), rgba(180, 130, 40, 0.1)), rgba(20, 22, 30, 0.55);
+  border-color: rgba(180, 130, 40, 0.2);
+}
+.grid-6 .grid-card:nth-child(1):hover {
+  background: linear-gradient(rgba(180, 130, 40, 0.15), rgba(180, 130, 40, 0.15)), rgba(24, 27, 37, 1);
+  border-color: rgba(180, 130, 40, 0.3);
+}
+.grid-6 .grid-card:nth-child(2) {
+  background: linear-gradient(rgba(50, 140, 140, 0.1), rgba(50, 140, 140, 0.1)), rgba(20, 22, 30, 0.55);
+  border-color: rgba(50, 140, 140, 0.2);
+}
+.grid-6 .grid-card:nth-child(2):hover {
+  background: linear-gradient(rgba(50, 140, 140, 0.15), rgba(50, 140, 140, 0.15)), rgba(24, 27, 37, 1);
+  border-color: rgba(50, 140, 140, 0.3);
+}
+.grid-6 .grid-card:nth-child(3) {
+  background: linear-gradient(rgba(130, 50, 160, 0.1), rgba(130, 50, 160, 0.1)), rgba(20, 22, 30, 0.55);
+  border-color: rgba(130, 50, 160, 0.2);
+}
+.grid-6 .grid-card:nth-child(3):hover {
+  background: linear-gradient(rgba(130, 50, 160, 0.15), rgba(130, 50, 160, 0.15)), rgba(24, 27, 37, 1);
+  border-color: rgba(130, 50, 160, 0.3);
+}
+.grid-6 .grid-card:nth-child(4) {
+  background: linear-gradient(rgba(45, 90, 170, 0.1), rgba(45, 90, 170, 0.1)), rgba(20, 22, 30, 0.55);
+  border-color: rgba(45, 90, 170, 0.2);
+}
+.grid-6 .grid-card:nth-child(4):hover {
+  background: linear-gradient(rgba(45, 90, 170, 0.15), rgba(45, 90, 170, 0.15)), rgba(24, 27, 37, 1);
+  border-color: rgba(45, 90, 170, 0.3);
+}
+.grid-6 .grid-card:nth-child(5) {
+  background: linear-gradient(rgba(170, 70, 50, 0.1), rgba(170, 70, 50, 0.1)), rgba(20, 22, 30, 0.55);
+  border-color: rgba(170, 70, 50, 0.2);
+}
+.grid-6 .grid-card:nth-child(5):hover {
+  background: linear-gradient(rgba(170, 70, 50, 0.15), rgba(170, 70, 50, 0.15)), rgba(24, 27, 37, 1);
+  border-color: rgba(170, 70, 50, 0.3);
+}
+.grid-6 .grid-card:nth-child(6) {
+  background: linear-gradient(rgba(40, 120, 60, 0.1), rgba(40, 120, 60, 0.1)), rgba(20, 22, 30, 0.55);
+  border-color: rgba(40, 120, 60, 0.2);
+}
+.grid-6 .grid-card:nth-child(6):hover {
+  background: linear-gradient(rgba(40, 120, 60, 0.15), rgba(40, 120, 60, 0.15)), rgba(24, 27, 37, 1);
+  border-color: rgba(40, 120, 60, 0.3);
+}
+.grid-6 .grid-card:nth-child(7) {
+  background: linear-gradient(rgba(180, 100, 50, 0.1), rgba(180, 100, 50, 0.1)), rgba(20, 22, 30, 0.55);
+  border-color: rgba(180, 100, 50, 0.2);
+}
+.grid-6 .grid-card:nth-child(7):hover {
+  background: linear-gradient(rgba(180, 100, 50, 0.15), rgba(180, 100, 50, 0.15)), rgba(24, 27, 37, 1);
+  border-color: rgba(180, 100, 50, 0.3);
+}
+
 .feature-text {
   display: flex;
   flex-direction: column;
@@ -663,12 +777,23 @@ code {
   grid-column: span 2;
 }
 
-.grid-card--img {
-  padding: 0.75rem;
+.grid-card--split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  padding: 1.75rem;
+  align-items: center;
 }
 
-.grid-card--img .feature-img-wrap {
+.grid-card--split .grid-card-split-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.grid-card--split .grid-card-split-img .feature-img-wrap {
   height: 100%;
+  min-height: 120px;
 }
 
 /* ============================================

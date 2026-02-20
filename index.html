@@ -18,7 +18,7 @@
     <nav class="nav" id="nav">
       <div class="nav-inner">
         <a href="/" class="nav-brand">
-          <div class="nav-logo" aria-label="Tesserite logo placeholder"></div>
+          <img class="nav-logo" src="img/logo-bgremove.png" alt="Tesserite logo" />
           <span class="nav-wordmark">Tesserite</span>
         </a>
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
@@ -26,8 +26,7 @@
         </button>
         <div class="nav-links" id="nav-links">
           <a href="#features">Features</a>
-          <a href="#3d-view">3D View</a>
-          <a href="/docs">Docs</a>
+          <a href="#more-features">More Features</a>
           <form class="nav-signup" id="nav-signup" action="#" method="POST">
             <input type="email" name="email" placeholder="your@email.com" required />
             <button type="submit">Sign Up</button>
@@ -41,7 +40,7 @@
       <div class="bento-grid hero-grid">
         <div class="card hero-content">
           <h1 class="hero-title">Unflattenize<br />your thinking.</h1>
-          <p class="hero-subtitle">A spatial thinking environment for Windows and Mac. Collaborate with LLMs by arranging ideas in space in forks, clusters, and networks. Tesserite is for people who think in systems, not sentences.</p>
+          <p class="hero-subtitle">A freeform mindmap-ish environment for Windows and Mac. Collaborate with LLMs by arranging ideas in space in forks, clusters, and networks. Tesserite is for people who think in systems, not sentences.</p>
           <form class="hero-signup" action="#" method="POST">
             <input type="email" name="email" placeholder="your@email.com" required />
             <button type="submit">Get Early Access</button>
@@ -90,8 +89,8 @@
         </div>
         <div class="card feature-text">
           <h2>Nodes as thought legos</h2>
-          <p>Every node is a thought. Every connection is context. Tesserite reads the graph upstream from your prompt — the LLM sees <em>why you're asking</em>, not just what.</p>
-          <p>Branch freely. Mask what you don't need. Steer conversation flow intuitively, while combatting context pollution. A new interaction paradigm for human-LLM communication.</p>
+          <p>Every node is a thought. Every connection is context. Tesserite reads the graph upstream from your prompt box, so that the LLM sees <em>why you're asking</em> in addition to what.</p>
+          <p>Branch freely. Mask what you don't need. Steer conversation flow intuitively, while elegantly cutting out context pollution.</p>
         </div>
       </div>
 
@@ -99,8 +98,8 @@
       <div class="bento-grid feature-row" id="3d-view">
         <div class="card feature-text">
           <h2>Your canvas has a Z-axis</h2>
-          <p>Timelines rise along a temporal axis, or up a line of abstraction, whatever works for you. Ground maps anchor abstract thinking to spatial metaphors, or 3D world building maps. Sculpt poetry in space!</p>
-          <p>Import <code>.glb</code> models. Export interactive 3D HTML views anyone can explore — perfect for sharing your worlds.</p>
+          <p>Timelines rise along a temporal axis, or up a line of abstraction, whatever works for you. Ground maps anchor abstract thinking to spatial metaphors, or 3D world building maps. Sculpt poetry in space</p>
+          <p>Import <code>.glb</code> models. Export interactive 3D HTML views anyone can explore. Perfect for sharing your worlds!</p>
         </div>
         <div class="card feature-screenshot">
           <div class="feature-img-wrap">
@@ -144,8 +143,8 @@
     </div>
 
     <!-- ===== FEATURE GRID ===== -->
-    <section class="feature-grid-section">
-      <h2 class="section-heading">Everything else you'd want for a second brain:</h2>
+    <section class="feature-grid-section" id="more-features">
+      <h2 class="section-heading">Everything else you'd want for a second brain (and fully compatible with Obsidian)</h2>
       <div class="bento-grid grid-6">
 
         <div class="card grid-card grid-card--tall">
@@ -177,7 +176,7 @@
 
         <div class="card grid-card">
           <div class="grid-card-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
           </div>
           <h3>Bring Your Own Models</h3>
           <p>Claude, Gemini, OpenAI via OpenRouter, local via Ollama. Switch mid-conversation. Easily compare outputs. Batch mode fires off prompts in parallel.</p>
@@ -191,17 +190,19 @@
           <p>The LLM manipulates the canvas itself — creating nodes, drawing edges, moving things around. Sandboxed, audited, and configurable.</p>
         </div>
 
-        <div class="card grid-card">
-          <div class="grid-card-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        <div class="card grid-card grid-card--wide grid-card--split">
+          <div class="grid-card-split-text">
+            <div class="grid-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3>Codebase and Agent Visualization</h3>
+            <p>Easily visualize multi-part projects and how they connect by using this as a new medium for your coding agents to express themselves.</p>
+            <p>For the millions of creative people now navigating technical systems through vibe coding who need to see what they're building to learn and evolve their systems</p>
           </div>
-          <h3>Codebase and Agent Visualization</h3>
-          <p>For the millions of creative people now navigating technical systems through vibe coding who need to see what they're building.</p>
-        </div>
-
-        <div class="card grid-card grid-card--img">
-          <div class="feature-img-wrap">
-            <img class="feature-img" src="img/img-codebase.png" alt="Codebase and agent visualization on canvas" />
+          <div class="grid-card-split-img">
+            <div class="feature-img-wrap">
+              <img class="feature-img" src="img/img-codebase.png" alt="Codebase and agent visualization on canvas" />
+            </div>
           </div>
         </div>
 
@@ -213,15 +214,15 @@
       <div class="card card-audience">
         <h2>Who is Tesserite for?</h2>
         <p class="audience-list">Visual thinkers. Researchers. Worldbuilders. Maximalists. Anyone whose ideas have topology.</p>
-        <p>Tesserite meets neurodivergent thinkers where their thinking already happens — designers, 3D artists, filmmakers, and the millions of creative people now navigating technical systems through vibe coding who need to <em>see</em> what they're building.</p>
-        <p class="audience-highlight">Spatial interfaces lower the floor and raise the ceiling. Basic use becomes more intuitive. Advanced use becomes more powerful.</p>
+        <p>Tesserite meets (neuro)divergent thinkers where their thinking already happens. This includes the thousands of creative people now navigating technical systems through vibe coding who need to <em>see</em> what they're building to stay on top of things.</p>
+        <p class="audience-highlight">Spatial interfaces lower the floor and raise the ceiling in all knowledge work.</p>
       </div>
     </section>
 
     <!-- ===== FINAL CTA ===== -->
     <section class="cta-section" id="get">
       <div class="card card-cta">
-        <h2>Ready to trellis it up?</h2>
+        <h2>Ready for dimensional thought crystallization?</h2>
         <form class="hero-signup" action="#" method="POST">
           <input type="email" name="email" placeholder="your@email.com" required />
           <button type="submit">Join the Waitlist</button>
@@ -234,11 +235,9 @@
       <div class="footer-inner">
         <span>Tesserite</span>
         <span class="footer-dot">&middot;</span>
-        <a href="/docs">Documentation</a>
+        <a href="https://www.kirstenzirngibl.com/" target="_blank" rel="noopener">Creator</a>
         <span class="footer-dot">&middot;</span>
-        <a href="https://github.com/nicjhan/tesserite" target="_blank" rel="noopener">GitHub</a>
-        <span class="footer-dot">&middot;</span>
-        <span class="footer-tagline">Made in Obsidian with unreasonable ambition</span>
+        <span class="footer-tagline">Prototyped in Obsidian with unreasonable ambition</span>
       </div>
     </footer>
 
