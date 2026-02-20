@@ -156,7 +156,7 @@ code {
 .nav-wordmark {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   letter-spacing: -0.02em;
   color: #fff;
 }
@@ -169,7 +169,7 @@ code {
 
 .nav-links a {
   font-family: var(--font-body);
-  font-size: 0.88rem;
+  font-size: 1rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
   transition: color 0.2s;
