@@ -92,10 +92,10 @@ code {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(12, 14, 20, 0.82);
+  background: rgba(140, 110, 30, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(180, 145, 40, 0.4);
 }
 
 .nav-inner {
@@ -112,24 +112,25 @@ code {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  color: var(--text-primary);
+  color: #fff;
 }
 
-.nav-brand:hover { color: var(--text-primary); }
+.nav-brand:hover { color: #fff; }
 
 .nav-logo {
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   border-radius: 6px;
-  background: var(--bg-accent);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .nav-wordmark {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: 1.4rem;
   letter-spacing: -0.02em;
+  color: #fff;
 }
 
 .nav-links {
@@ -142,11 +143,11 @@ code {
   font-family: var(--font-body);
   font-size: 0.88rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.8);
   transition: color 0.2s;
 }
 
-.nav-links a:hover { color: var(--text-primary); }
+.nav-links a:hover { color: #fff; }
 
 /* Hamburger */
 .nav-toggle {
@@ -410,6 +411,22 @@ code {
 }
 
 /* ============================================
+   AGGREGATE BARS
+   ============================================ */
+.aggregate-bar {
+  width: 100%;
+  overflow: hidden;
+}
+
+.aggregate-bar img {
+  width: 100%;
+  height: auto;
+  display: block;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+/* ============================================
    FEATURE GRID (6 cards, bento)
    ============================================ */
 .feature-grid-section {
@@ -604,16 +621,12 @@ code {
 .grid-6 .card.visible:nth-child(6) { transition-delay: 0.30s; }
 
 /* ============================================
-   DOT GRID BACKGROUND TEXTURE
+   DOT GRID BACKGROUND (canvas-rendered)
    ============================================ */
-body::before {
-  content: '';
+#dot-grid {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background-image: radial-gradient(circle, #3a352e 0.8px, transparent 0.8px);
-  background-size: 24px 24px;
-  opacity: 0.45;
   pointer-events: none;
 }
 
