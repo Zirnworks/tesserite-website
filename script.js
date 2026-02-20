@@ -38,3 +38,78 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+// --- Grid connectors (SVG overlay) ---
+function drawGridConnectors() {
+  const grid = document.querySelector('.grid-6');
+  if (!grid) return;
+
+  // Remove previous SVG
+  const old = grid.querySelector('.grid-connectors');
+  if (old) old.remove();
+
+  const cards = Array.from(grid.querySelectorAll('.grid-card'));
+  const gridRect = grid.getBoundingClientRect();
+
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.classList.add('grid-connectors');
+  svg.setAttribute('width', gridRect.width);
+  svg.setAttribute('height', gridRect.height);
+  svg.style.position = 'absolute';
+  svg.style.top = '0';
+  svg.style.left = '0';
+  svg.style.pointerEvents = 'none';
+  svg.style.overflow = 'visible';
+
+  const color = '#3a3f54';
+  const dotR = 3;
+
+  // Find horizontally adjacent pairs
+  for (let i = 0; i < cards.length; i++) {
+    const a = cards[i].getBoundingClientRect();
+    for (let j = i + 1; j < cards.length; j++) {
+      const b = cards[j].getBoundingClientRect();
+
+      // Check vertical overlap
+      const overlapTop = Math.max(a.top, b.top);
+      const overlapBot = Math.min(a.bottom, b.bottom);
+      if (overlapBot - overlapTop < 20) continue;
+
+      // Check horizontal gap is roughly the grid gap
+      const left = a.right < b.left ? a : b;
+      const right = a.right < b.left ? b : a;
+      const gap = right.left - left.right;
+      if (gap < 8 || gap > 60) continue;
+
+      // Draw connector at vertical midpoint of overlap
+      const midY = (overlapTop + overlapBot) / 2 - gridRect.top;
+      const x1 = left.right - gridRect.left;
+      const x2 = right.left - gridRect.left;
+
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', x1);
+      line.setAttribute('y1', midY);
+      line.setAttribute('x2', x2);
+      line.setAttribute('y2', midY);
+      line.setAttribute('stroke', color);
+      line.setAttribute('stroke-width', '1');
+      svg.appendChild(line);
+
+      [x1, x2].forEach(cx => {
+        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        dot.setAttribute('cx', cx);
+        dot.setAttribute('cy', midY);
+        dot.setAttribute('r', dotR);
+        dot.setAttribute('fill', color);
+        svg.appendChild(dot);
+      });
+    }
+  }
+
+  grid.style.position = 'relative';
+  grid.appendChild(svg);
+}
+
+// Draw on load and resize
+window.addEventListener('load', drawGridConnectors);
+window.addEventListener('resize', drawGridConnectors);
