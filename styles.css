@@ -683,7 +683,7 @@ code {
   font-weight: 400;
   font-style: italic;
   line-height: 1.7;
-  color: var(--accent-light);
+  color: #fff;
   letter-spacing: -0.01em;
 }
 
