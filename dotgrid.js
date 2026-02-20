@@ -14,12 +14,12 @@
 
   // Colors
   const BASE_R = 58, BASE_G = 53, BASE_B = 46;       // #3a352e warm gray
-  const GLOW_R = 120, GLOW_G = 170, GLOW_B = 220;    // light blue
+  const GLOW_R = 25, GLOW_G = 80, GLOW_B = 210;       // dark saturated blue
 
   // Noise field
-  const NOISE_SCALE = 0.008;     // cloud size (smaller = larger blobs)
-  const TIME_SPEED = 0.0004;     // animation speed
-  const THRESHOLD = 0.70;        // top 30% of noise values get color
+  const NOISE_SCALE = 0.0044;    // cloud size (smaller = larger blobs)
+  const TIME_SPEED = 0.000252;   // animation speed
+  const THRESHOLD = 0.50;        // where color begins (wide gradient)
 
   // --- Simplex 2D (compact implementation) ---
   const F2 = 0.5 * (Math.sqrt(3) - 1);
@@ -137,11 +137,11 @@
         if (n > THRESHOLD) {
           // Map the above-threshold portion to 0..1 blend factor
           const blend = (n - THRESHOLD) / (1 - THRESHOLD);
-          const eased = blend * blend; // ease-in for smoother transition
+          const eased = blend * blend * blend; // cubic ease — long soft tail, punchy peak
           r = BASE_R + (GLOW_R - BASE_R) * eased;
           g = BASE_G + (GLOW_G - BASE_G) * eased;
           b = BASE_B + (GLOW_B - BASE_B) * eased;
-          a = BASE_ALPHA + (0.7 - BASE_ALPHA) * eased;
+          a = BASE_ALPHA + (0.9 - BASE_ALPHA) * eased;
         } else {
           r = BASE_R;
           g = BASE_G;
@@ -149,9 +149,13 @@
           a = BASE_ALPHA;
         }
 
+        const radius = n > THRESHOLD
+          ? DOT_RADIUS + (2.2 - DOT_RADIUS) * ((n - THRESHOLD) / (1 - THRESHOLD))
+          : DOT_RADIUS;
+
         ctx.fillStyle = `rgba(${r|0},${g|0},${b|0},${a})`;
         ctx.beginPath();
-        ctx.arc(px, py, DOT_RADIUS, 0, Math.PI * 2);
+        ctx.arc(px, py, radius, 0, Math.PI * 2);
         ctx.fill();
       }
     }
