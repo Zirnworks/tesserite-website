@@ -113,3 +113,57 @@ function drawGridConnectors() {
 // Draw on load and resize
 window.addEventListener('load', drawGridConnectors);
 window.addEventListener('resize', drawGridConnectors);
+
+// --- Email signup form handler ---
+document.querySelectorAll('.nav-signup, .hero-signup').forEach(form => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const input = form.querySelector('input[type="email"]');
+    const button = form.querySelector('button[type="submit"]');
+    const email = input.value.trim();
+    if (!email) return;
+
+    // Clear previous feedback
+    const oldMsg = form.querySelector('.signup-msg');
+    if (oldMsg) oldMsg.remove();
+
+    const originalText = button.textContent;
+    button.textContent = 'Sending\u2026';
+    button.disabled = true;
+    input.disabled = true;
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+
+      const msg = document.createElement('span');
+      msg.className = 'signup-msg';
+
+      if (data.ok) {
+        msg.classList.add('signup-msg--success');
+        msg.textContent = data.message;
+        input.value = '';
+        setTimeout(() => msg.remove(), 6000);
+      } else {
+        msg.classList.add('signup-msg--error');
+        msg.textContent = data.message || 'Something went wrong. Please try again.';
+      }
+      form.appendChild(msg);
+
+    } catch {
+      const msg = document.createElement('span');
+      msg.className = 'signup-msg signup-msg--error';
+      msg.textContent = 'Network error. Please try again.';
+      form.appendChild(msg);
+    } finally {
+      button.textContent = originalText;
+      button.disabled = false;
+      input.disabled = false;
+    }
+  });
+});
