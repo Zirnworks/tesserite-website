@@ -1,4 +1,4 @@
-// Cloudflare Pages Function — proxies email signups to Sender.net
+// Cloudflare Worker — handles /api/subscribe, static assets served automatically
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
@@ -6,13 +6,26 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Headers': 'Content-Type',
 };
 
-export async function onRequestOptions() {
-  return new Response(null, { status: 204, headers: CORS_HEADERS });
-}
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
 
-export async function onRequestPost(context) {
-  const { request, env } = context;
+    if (url.pathname === '/api/subscribe') {
+      if (request.method === 'OPTIONS') {
+        return new Response(null, { status: 204, headers: CORS_HEADERS });
+      }
+      if (request.method === 'POST') {
+        return handleSubscribe(request, env);
+      }
+      return jsonResponse(405, { ok: false, message: 'Method not allowed.' });
+    }
 
+    // All other routes: fall through to static assets
+    return env.ASSETS.fetch(request);
+  },
+};
+
+async function handleSubscribe(request, env) {
   const apiKey = env.SENDER_API_KEY;
   if (!apiKey) {
     return jsonResponse(500, { ok: false, message: 'Server misconfiguration.' });

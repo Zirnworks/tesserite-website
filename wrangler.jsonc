@@ -1,5 +1,8 @@
 {
   "name": "tesserite-website",
   "compatibility_date": "2026-02-19",
-  "pages_build_output_dir": "."
+  "main": "worker.js",
+  "assets": {
+    "directory": "."
+  }
 }
